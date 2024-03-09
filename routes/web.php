@@ -39,3 +39,4 @@ route::put('/posts/{post}',[postController::class,'update'])->name('posts.update
 route::delete('/posts/{post}',[postController::class,'destroy']) ->name
 ('posts.destroy');
 ////////////
+//////////////////////////////////////////////////////////
