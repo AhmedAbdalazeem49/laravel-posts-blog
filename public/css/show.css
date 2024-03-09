@@ -1,0 +1,98 @@
+/* Header Font */
+@import url("https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap");
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: url("../../public/images/showBackground.jpg");
+    background-size: cover;
+}
+
+section {
+    position: relative;
+    padding: 100px;
+    max-height: 100vh;
+}
+
+/* Header Style */
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 30px 100px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Header Logo Style */
+header .logo {
+    position: relative;
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.4em;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    transition: 0.5s;
+    font-family: "Kode Mono", monospace;
+}
+
+header a:nth-child(2) {
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    margin-right: 30px;
+    transition: 0.5s;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+header a:hover {
+    color: #03a9f4;
+    transform: scale(1.1);
+}
+
+/* Start Main Styling */
+main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 80px;
+    gap: 30px;
+}
+
+main > div {
+    width: 45%;
+    background-color: #ffffff41;
+    padding: 30px;
+    border-radius: 20px;
+    height: 350px;
+}
+
+main > div > h3 {
+    text-align: center;
+    color: rgba(95, 20, 20, 0.886);
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.info h5,
+.info p {
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.info h5 span,
+.info p span {
+    color: rgba(95, 20, 20, 0.886);
+    font-size: 20px;
+}

@@ -40,7 +40,7 @@ public function store()
  
 
 
-// return to_route('posts.index') ;
+ return to_route('posts.index') ;
  
  
  
@@ -55,6 +55,19 @@ public function edit()
 public function delete()
 {
     return view('posts.delete');
+}
+
+public function update()
+{
+
+ return to_route('posts.show',1) ;
+ $data = request()->all();    
+return $data ;
+  
+}
+public function destroy()
+{
+    return to_route('posts.index');
 }
 
 }

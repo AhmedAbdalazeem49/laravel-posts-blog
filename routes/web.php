@@ -34,4 +34,7 @@ route::get('/posts/{post}',[postController::class,'show'])->name('posts.show');
 
 route::get('/posts/{post}/edit',[postController::class,'edit'])->name('posts.edit');
 
-route::delete('/posts/{post}/destroy',[postController::class,'destroy']) ->name('posts.delete');
+route::put('/posts/{post}',[postController::class,'update'])->name('posts.update');
+
+route::delete('/posts/{post}',[postController::class,'destroy']) ->name
+('posts.destroy');

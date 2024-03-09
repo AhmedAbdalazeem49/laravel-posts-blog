@@ -25,8 +25,9 @@
           </div>
         </div>
       </nav>
-    <form >
+    <form method="POST" action="{{route('posts.update',1)}}">
       @csrf
+      @method('put')
     <div class="mb-3">
     <label for="" class="form-label">Title</label>
     <input type="text" class="form-control" name="title">
@@ -44,6 +45,7 @@
             </select>
         </div>
         <input type="submit" class="btn btn-success" value="Update">
+        
 
     </form> 
 
