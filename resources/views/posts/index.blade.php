@@ -39,20 +39,23 @@
               <th scope="col">#</th>
               <th scope="col">Titled</th>
               <th scope="col">Posted by</th>
-              <th scope="col">Actions</th>
+              <th scope="col">created at</th>
+              <th scope="col">actions</th>
+
+
             </tr>
           </thead>
           <tbody>
             @foreach($posts as $post)
             <tr>
-              <th scope="row">1</th>
-              <td>{{$post['id']}}</td>
-              <td>{{$post['title']}}</td>
-              <td>{{$post['posted_by']}}</td>
-              <td>{{$post['created_at']}}</td>
+  
+              <td>{{ $loop->iteration }}</td>
+              <td>{{$post->title}}</td>
+              <td>{{$post->posted_by}}</td>
+              <td>{{$post->created_at}}</td>
               <td>
-                <a href="{{route('posts.show',$post['id'])}}" class="btn btn-primary">View</button>
-                <a href="{{route('posts.edit',$post['id'])}}" class="btn btn-secondary">Edit</button>
+                <a href="{{route('posts.show',$post->id}}" class="btn btn-primary">View</button>
+                <a href="{{route('posts.edit',$post->id}}" class="btn btn-secondary">Edit</button>
                   <form style="display: inline" method="POST" action="{{route('posts.destroy',$post['id'])}}">
                     @csrf
                     @method('DELETE')

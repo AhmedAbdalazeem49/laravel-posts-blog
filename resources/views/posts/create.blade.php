@@ -27,6 +27,7 @@
       </nav>
     <form method="POST" action="{{route('posts.store')}}">
       @csrf
+     
     <div class="mb-3">
     <label for="" class="form-label">Title</label>
     <input type="text" class="form-control" name="title">
@@ -39,8 +40,9 @@
         <div class="mb-3">
             <label class="form-label">post creator</label>
             <select class="form-control" name="post_creator">
-                <option value="1">ahmed</option>
-                <option value="2">mohamed</option>
+              @foreach($users as $user)
+                <option value="{{$user->id}}">{{$user->name}}</option>
+               @endforeach
             </select>
         </div>
         <input type="submit" class="btn btn-success" value="submit">
