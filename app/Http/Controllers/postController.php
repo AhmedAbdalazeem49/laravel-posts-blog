@@ -139,4 +139,4 @@ class PostController extends Controller
         //2- redirect to posts.index
         return to_route('posts.index');
     }
-}
+}  

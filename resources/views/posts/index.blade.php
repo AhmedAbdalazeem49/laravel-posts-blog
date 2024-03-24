@@ -51,7 +51,7 @@
   
               <td>{{ $loop->iteration }}</td>
               <td>{{$post->title}}</td>
-              <td>{{$post->posted_by}}</td>
+              <td>Name: {{$post->user? $post->user->name : 'not found'}}</td>
               <td>{{$post->created_at}}</td>
               <td>
                 <a href="{{route('posts.show',$post->id}}" class="btn btn-primary">View</button>

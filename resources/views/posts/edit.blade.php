@@ -1,4 +1,4 @@
-<!doctype html>
+ <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -25,23 +25,26 @@
           </div>
         </div>
       </nav>
-    <form method="POST" action="{{route('posts.update',1)}}">
+    <form method="POST" action="{{route('posts.update',$post->id)}}">
       @csrf
       @method('put')
     <div class="mb-3">
     <label for="" class="form-label">Title</label>
-    <input type="text" class="form-control" name="title">
+    <input type="text" class="form-control" name="title" value="{{$post->title}}">
     </div>
 
     <div class="mb-3">
         <label  class="form-label">Description</label>
-        <textarea class="form-control" rows="3" name="description"></textarea>
+        <textarea class="form-control" rows="3" name="description" >
+        {{$post->description}}
+        </textarea>  
         </div>
         <div class="mb-3">
             <label class="form-label">post creator</label>
             <select class="form-control" name="post_creator">
-                <option value="1">ahmed</option>
-                <option value="2">mohamed</option>
+              @foreach($users as $user)
+              <option value="{{$user->id}}">{{$user->name}}</option>
+             @endforeach
             </select>
         </div>
         <input type="submit" class="btn btn-success" value="Update">
