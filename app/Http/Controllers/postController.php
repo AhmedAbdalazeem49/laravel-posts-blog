@@ -11,7 +11,7 @@ class PostController extends Controller
     public function index()
     {
         //select * from posts;
-        $postsFromDB = Post::all(); //collection object
+        $postsFromDB = post::all(); //collection object
 
         //id, title (Var char), description(TEXT), created_at, updated_at
 
@@ -83,12 +83,11 @@ class PostController extends Controller
         Post::create([
             'title' => $title,
             'description' => $description,
-            'xyz' => 'some value', //ignore,
             'user_id' => $postCreator,
         ]);
 
         //3- redirection to posts.index
-        return to_route('posts.index');
+        return  redirect('posts');
     }
 
     public function edit(Post $post)

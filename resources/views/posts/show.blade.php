@@ -1,50 +1,38 @@
-
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://unpkg/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="../../css/show.css">
-    <!-- Adding Favicon -->
-        <link rel="icon" type="image/png" href="../../../public/images/showPage.png">
-    <title>Show</title>
+    <link rel="stylesheet" href="{{ asset('css/show.css') }}">
+    <!-- Adding A favicon -->
+    <link rel="icon" type="image/png" href="/public/images/welcomePage.png">
+    <title>Blog</title>
   </head>
   <body>
     <section>
       <header>
-        <a href="#" class="logo">Shoman Posts Blog</a>
-        <a href="{{route('posts.index')}}">All Posts</a>
+        <a href="{{route('posts.index')}}" class="logo">Shoman Posts Blog</a>
+        <a style="--clr: #03a9f4" class="button" href="{{route('posts.index')}}">
+            <span class="button__icon-wrapper">
+                <svg width="10" class="button__icon-svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 15">
+                    <path fill="currentColor" d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"></path>
+                </svg>
+                
+                <svg class="button__icon-svg  button__icon-svg--copy" xmlns="http://www.w3.org/2000/svg" width="10" fill="none" viewBox="0 0 14 15">
+                    <path fill="currentColor" d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"></path>
+                </svg>
+            </span>
+            All Posts
+        </a>
       </header>
       <main>
-      <div class="post-info">
-        <h3>Post Info</h3>
-        <div class="info">
-          <h5>Title: {{$post->title}}<br> </h5>
+        <h3 class="title">{{$post->title}}</h3>
+        <p class="description">{{$post->description}}</p>
+        <div class="creator">
+          <p>Name: <span>{{$post->user? $post->user->name : 'not found'}}</span></p>
+          <p>Email: <span>{{$post->user?$post->user->email: 'not found'}}</span></p>
+          <p>Posted At: <span>{{$post->user?$post->user->created_at: 'not found'}}</span></p>
         </div>
-      </div>
-      <div class="creator-info">
-        <h3>Creator Info</h3>
-        <div class="card-body">
-          <h5 class="card-title">Name: {{$post->user? $post->user->name : 'not found'}}</h5>
-          <p class="card-text">Email: {{$post->user?$post->user->email: 'not found'}}</p>
-          <p class="card-text">Created At: {{$post->user?$post->user->created_at: 'not found'}}</p>
-        </div>
-      </div>
-      
-      
-      
-      
-      
-      
-
-      
-      </div>
       </main>
     </section>
 </body>

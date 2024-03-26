@@ -3,80 +3,54 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- CSS File -->
+    <link rel="stylesheet" href="{{ asset('css/index.css') }}">
+    <title>All Posts</title>
   </head>
   <body>
-
-
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">SHOMAN BLOG POST</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+    <div class="header">
+      <a href="#">SHOMAN BLOG POST</a>
+      <a href="{{route('posts.create')}}"><button class="Btn">
+        <div class="sign">+</div>
+        <div class="text">Create Post</div>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="{{route('posts.index')}}">ALL POSTS</a>
-            </li>
-            
-          </form>
-        </div>
-      </div>
-    </nav>
-    
-    <div class="mt-5">
-      <center>
-        <a href="{{route('posts.create')}}" class="text-center"><button type="button" class="btn btn-outline-success">Create post</button>
-        </center>
-      </div>
-      <div>
-      <!-- -->
-        <table class="table mt-4">
+      </a>
+    </div>
+    <main>
+        <table>
           <thead>
             <tr>
-              <th scope="col">#</th>
-              <th scope="col">Titled</th>
-              <th scope="col">Posted by</th>
-              <th scope="col">created at</th>
-              <th scope="col">actions</th>
-
-
+              <th>#</th>
+              <th>Title</th>
+              <th>Creator</th>
+              <th>Time</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
             @foreach($posts as $post)
             <tr>
-  
-              <td>{{ $loop->iteration }}</td>
+              <td>{{$loop->iteration}}</td>
               <td>{{$post->title}}</td>
-              <td>Name: {{$post->user? $post->user->name : 'not found'}}</td>
+              <td>{{$post->user? $post->user->name : 'not found'}}</td>
               <td>{{$post->created_at}}</td>
-              <td>
-                <a href="{{route('posts.show',$post->id}}" class="btn btn-primary">View</button>
-                <a href="{{route('posts.edit',$post->id}}" class="btn btn-secondary">Edit</button>
-                  <form style="display: inline" method="POST" action="{{route('posts.destroy',$post['id'])}}">
+              <td class="actions">
+                <button><a href="{{route('posts.show', $post->id) }}">View</a></button>
+                <button><a href="{{route('posts.edit',$post->id)}}">Edit</a></button>
+                <form method="POST" action="{{route('posts.destroy',$post['id'])}}">
                     @csrf
                     @method('DELETE')
-               <button type="submit" class="btn-btn-danger" href="">Delete</button>
+                    <button class="btn">
+                      <svg viewBox="0 0 15 17.5" height="17.5" width="15" xmlns="http://www.w3.org/2000/svg" class="icon">
+                        <path transform="translate(-2.5 -1.25)" d="M15,18.75H5A1.251,1.251,0,0,1,3.75,17.5V5H2.5V3.75h15V5H16.25V17.5A1.251,1.251,0,0,1,15,18.75ZM5,5V17.5H15V5Zm7.5,10H11.25V7.5H12.5V15ZM8.75,15H7.5V7.5H8.75V15ZM12.5,2.5h-5V1.25h5V2.5Z" id="Fill"></path>
+                      </svg>
+                    </button>
                 </form>
               </td>
             </tr>
             @endforeach
           </tbody>
         </table>
-      </div>
-   
-   
-   
-  
-   
-      
-      
-      
-      
-
-
+    </main>
   </body>
 </html> 

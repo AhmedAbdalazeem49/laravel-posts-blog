@@ -1,4 +1,3 @@
-/* Header Logo Font */
 @import url("https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap");
 
 * {
@@ -9,21 +8,24 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
+  background-color: #f0f0f0;
 }
 
 section {
   position: relative;
   width: 100%;
   min-height: 100vh;
-  background-image: url(../images/welcomeBackground.jpg);
+  background-image: url(../images/welcme.jpg);
+  background-color: #f06291c5;
   background-size: cover;
+  background-repeat: no-repeat;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   padding: 100px;
+  backdrop-filter: blur(10px);
 }
 
-/* Header Style */
 header {
   position: absolute;
   top: 0;
@@ -35,11 +37,10 @@ header {
   align-items: center;
 }
 
-/* Header Logo Style */
 header .logo {
   position: relative;
   text-decoration: none;
-  color: #fff;
+  color: rgba(255, 255, 255, 0.9);
   font-size: 1.4em;
   font-weight: 700;
   letter-spacing: 1px;
@@ -52,35 +53,138 @@ header .logo:hover {
   color: #03a9f4;
 }
 
-/* Header Navigation Menu Style */
-
-header .navigation {
+header .buttons {
   position: relative;
   display: flex;
+  gap: 10px;
+  align-items: center;
 }
 
-header .navigation li {
-  list-style: none;
+
+/* Login Button */
+.Btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 45px;
+  height: 45px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition-duration: .3s;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+  background-color: #03a9f4;
 }
 
-header .navigation li a {
-  display: inline-block;
-  text-decoration: none;
-  color: #fff;
-  margin-right: 30px;
-  transition: 0.5s;
-  font-size: 17px;
-  font-weight: 500;
+/* plus sign */
+.sign {
+  width: 100%;
+  transition-duration: .3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-header .navigation li a:hover {
-  color: #03a9f4;
-  transform: scale(1.1);
+.sign svg {
+  width: 17px;
 }
 
-/* Content Style */
+.sign svg path {
+  fill: white;
+}
+
+/* text */
+.text {
+  position: absolute;
+  right: 0%;
+  width: 0%;
+  opacity: 0;
+  color: white;
+  font-size: 1.2em;
+  font-weight: 600;
+  transition-duration: .3s;
+}
+
+/* hover effect on button width */
+.Btn:hover {
+  width: 125px;
+  border-radius: 40px;
+  transition-duration: .3s;
+}
+
+.Btn:hover .sign {
+  width: 30%;
+  transition-duration: .3s;
+  padding-left: 20px;
+}
+
+/* hover effect button's text */
+.Btn:hover .text {
+  opacity: 1;
+  width: 70%;
+  transition-duration: .3s;
+  padding-right: 10px;
+}
+
+/* button click effect*/
+.Btn:active {
+  transform: translate(2px, 2px);
+}
+
+.signupBtn {
+  width: 120px;
+  height: 40px;
+  border-radius: 30px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 20px;
+  gap: 9px;
+  color: white;
+  background: linear-gradient(to right, #03a9f4, #0871a1);
+  position: relative;
+  cursor: pointer;
+}
+
+.arrow {
+  position: absolute;
+  right: 7.5px;
+  background-color: rgb(255, 255, 255);
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.signupBtn:hover .arrow {
+  animation: slide-in-left 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+@keyframes slide-in-left {
+  0% {
+    transform: translateX(-10px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
 .content {
   max-width: 700px;
+}
+
+.content .contentBox {
+  background-color: rgba(255, 255, 255, 0.3);
+  padding: 30px;
+  border-radius: 20px;
 }
 
 .content .contentBox h2 {
@@ -89,7 +193,7 @@ header .navigation li a:hover {
 }
 
 .content .contentBox p {
-  color: #fff;
+  color: #000;
   font-weight: 300;
   font-size: 1.2em;
   line-height: 1.4;
@@ -114,7 +218,6 @@ header .navigation li a:hover {
   transform: scale(0.8);
 }
 
-/* Social Media Icon Style */
 ul.sci {
   display: flex;
   position: absolute;
@@ -132,7 +235,7 @@ ul.sci li a {
   position: relative;
   display: inline-block;
   margin-right: 20px;
-  color: #fff;
+  color: rgba(255, 255, 255, 0.9);
   font-size: 1.6em;
   transition: 0.3s;
 }
@@ -140,5 +243,3 @@ ul.sci li a {
 ul.sci li a:hover {
   transform: scale(0.8);
 }
-
-/* End Styling of the page*/
